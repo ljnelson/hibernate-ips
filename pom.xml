@@ -5,6 +5,10 @@
   <artifactId>hibernate-ips</artifactId>
   <version>3.6.6-SNAPSHOT</version>
 
+  <!--
+  Test
+  -->
+
   <parent>
     <groupId>org.glassfish</groupId>
     <artifactId>glassfish-parent</artifactId>
