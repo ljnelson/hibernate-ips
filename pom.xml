@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?><!-- $Id: pom.xml 336 2011-02-26 22:20:22Z ljnelson $ -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>hibernate-ips</artifactId>
+  <version>3.6.6-SNAPSHOT</version>
+
+  <parent>
+    <groupId>org.glassfish</groupId>
+    <artifactId>glassfish-parent</artifactId>
+    <version>3.1.1</version>
+  </parent>
+
+  <name>Hibernate IPS Package</name>
+
+  <dependencyManagement>
+    <dependencies>
+
+      <dependency>
+	<groupId>junit</groupId>
+	<artifactId>junit</artifactId>
+	<version>${junitVersion}</version>
+	<scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-c3p0</artifactId>
+        <version>${hibernateVersion}</version>
+	<scope>runtime</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>${hibernateVersion}</version>
+	<scope>runtime</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-ehcache</artifactId>
+        <version>${hibernateVersion}</version>
+	<scope>runtime</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-entitymanager</artifactId>
+        <version>${hibernateVersion}</version>
+	<scope>runtime</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-envers</artifactId>
+        <version>${hibernateVersion}</version>
+	<scope>runtime</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-infinispan</artifactId>
+        <version>${hibernateVersion}</version>
+	<scope>runtime</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-jbosscache</artifactId>
+        <version>${hibernateVersion}</version>
+	<scope>runtime</scope>
+	<exclusions>
+	  <exclusion>
+	    <groupId>jgroups</groupId>
+	    <artifactId>jgroups</artifactId>
+	  </exclusion>
+	</exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-oscache</artifactId>
+        <version>${hibernateVersion}</version>
+	<scope>runtime</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-proxool</artifactId>
+        <version>${hibernateVersion}</version>
+	<scope>runtime</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-swarmcache</artifactId>
+        <version>${hibernateVersion}</version>
+	<scope>runtime</scope>
+      </dependency>
+
+      <dependency>
+	<groupId>org.slf4j</groupId>
+	<artifactId>slf4j-api</artifactId>
+	<version>${slf4jVersion}</version>
+	<scope>runtime</scope>
+      </dependency>
+
+      <dependency>
+	<groupId>org.slf4j</groupId>
+	<artifactId>slf4j-jdk14</artifactId>
+	<version>${slf4jVersion}</version>
+	<scope>runtime</scope>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-c3p0</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-ehcache</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-envers</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-infinispan</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-jbosscache</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-oscache</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-proxool</artifactId>
+    </dependency>
+    
+    <!--
+    We do not include hibernate-swarmcache because it pulls in an
+    ancient version of jgroups-all that conflicts with the jgroups
+    pulled in transitively by hibernate-infinispan.
+    -->
+    <!--
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-swarmcache</artifactId>
+    </dependency>
+    -->
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-jdk14</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+    </dependency>
+    
+  </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+	<plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>2.3.2</version>
+          <configuration>
+            <compilerArgument>-Xlint:all</compilerArgument>
+            <encoding>UTF8</encoding>
+            <source>1.6</source>
+            <target>1.6</target>
+          </configuration>
+        </plugin>
+
+	<plugin>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>2.2</version>
+        </plugin>
+
+	<plugin>
+	  <artifactId>maven-jar-plugin</artifactId>
+	  <version>2.3.1</version>
+	</plugin>
+
+	<plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>2.5</version> 
+          <configuration>
+            <delimiters>
+              <delimiter>${*}</delimiter>
+            </delimiters>
+            <encoding>UTF8</encoding>
+            <escapeString>\</escapeString>
+            <useDefaultDelimiters>false</useDefaultDelimiters>
+          </configuration>
+        </plugin>
+
+	<plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.9</version>
+	</plugin>
+
+	<plugin>
+	  <groupId>org.glassfish.build</groupId>
+	  <artifactId>maven-glassfishbuild-plugin</artifactId>
+	  <version>${glassfishVersion}</version>
+	</plugin>
+
+	<plugin>
+	  <groupId>org.jvnet.updatecenter2</groupId>
+	  <artifactId>maven-makepkgs-plugin</artifactId>
+	  <version>0.5.1</version>
+	</plugin>
+	
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <plugin>
+	<groupId>org.glassfish.build</groupId>
+	<artifactId>maven-glassfishbuild-plugin</artifactId>
+	<version>${glassfishVersion}</version>
+      </plugin>
+
+      <plugin>
+	<artifactId>maven-dependency-plugin</artifactId>
+	<executions>
+	  <execution>
+	    <id>Copy Hibernate and its dependencies to target/stage</id>
+	    <configuration>
+	      <excludeArtifactIds>hibernate-jpa-2.0-api</excludeArtifactIds>
+	      <!-- http://jira.codehaus.org/browse/MDEP-128?focusedCommentId=232398&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-232398 -->
+	      <includeScope>runtime</includeScope>
+	      <excludeScope>provided</excludeScope>
+	      <outputDirectory>${project.build.directory}/stage/glassfish/domains/domain1/applibs/hibernate-${hibernateVersion}</outputDirectory>
+	      <overWriteIfNewer>true</overWriteIfNewer>
+	      <overWriteReleases>false</overWriteReleases>
+	      <overWriteSnapshots>false</overWriteSnapshots>
+	    </configuration>
+	    <goals>
+	      <goal>copy-dependencies</goal>
+	    </goals>
+	    <phase>generate-resources</phase>
+	  </execution>
+	</executions>
+      </plugin>
+
+      <plugin>
+	<artifactId>maven-jar-plugin</artifactId>
+	<configuration>
+	  <finalName>${project.artifactId}-${project.version}</finalName>
+	  <archive>
+	    <manifest>
+	      <addClasspath>true</addClasspath>
+	      <classpathPrefix>hibernate-${hibernateVersion}</classpathPrefix>
+	    </manifest>
+	  </archive>
+	  <outputDirectory>${project.build.directory}/stage/glassfish/domains/domain1/applibs</outputDirectory>
+	</configuration>
+      </plugin>
+
+      <plugin>
+	<artifactId>maven-resources-plugin</artifactId>
+	<executions>
+	  <execution>
+	    <configuration>
+	      <outputDirectory>${project.build.directory}</outputDirectory>
+	      <resources>
+		<resource>
+		  <directory>src/main/ips</directory>
+		  <filtering>true</filtering>
+		  <includes>
+		    <include>proto.py</include>
+		  </includes>
+		</resource>
+	      </resources>
+	    </configuration>
+	    <goals>
+	      <goal>copy-resources</goal>
+	    </goals>
+	    <id>Copy and filter IPS package file</id>
+	    <phase>process-resources</phase>
+	  </execution>
+	</executions>
+      </plugin>
+
+      <plugin>
+	<groupId>org.jvnet.updatecenter2</groupId>
+	<artifactId>maven-makepkgs-plugin</artifactId>
+	<executions>
+	  <execution>
+	    <id>Make IPS package</id>
+	    <configuration>
+	      <makePkgsDir>${project.build.directory}</makePkgsDir>
+	      <remoteRepository>${repo.url}</remoteRepository>
+	      <python>${python}</python>
+	      <prototype>${project.build.directory}/proto.py</prototype>
+	      <baseDirectory>${project.build.directory}/stage</baseDirectory>
+	    </configuration>
+	    <goals>
+	      <goal>package</goal>
+	    </goals>
+	  </execution>
+	</executions>
+      </plugin>
+
+    </plugins>
+
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+	<excludes>
+	  <exclude>proto.py</exclude>
+	</excludes>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+
+    <testResources>
+      
+      <testResource>
+        <directory>src/test/resources</directory>
+        <filtering>true</filtering>
+      </testResource>
+      
+    </testResources>
+
+  </build>
+
+  <properties>
+    <glassfishVersion>3.1.1</glassfishVersion>
+    <hibernateVersion>${ipsCompatibleHibernateVersion}.Final</hibernateVersion>
+    <ipsCompatibleHibernateVersion>3.6.6</ipsCompatibleHibernateVersion>
+    <junitVersion>4.8.2</junitVersion>
+    <python>python</python>
+    <repo.url>TODO_FIXME</repo.url>
+    <slf4jVersion>1.6.1</slf4jVersion>
+  </properties>
+
+</project>
