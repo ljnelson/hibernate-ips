@@ -5,10 +5,6 @@
   <artifactId>hibernate-ips</artifactId>
   <version>3.6.6-SNAPSHOT</version>
 
-  <!--
-  Test
-  -->
-
   <parent>
     <groupId>org.glassfish</groupId>
     <artifactId>glassfish-parent</artifactId>
@@ -122,16 +118,19 @@
 
   <dependencies>
 
+    <!-- No need; Glassfish has its own connection pool. -->
+    <!--
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-c3p0</artifactId>
     </dependency>
+    -->
 
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
     </dependency>
-    
+
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-ehcache</artifactId>
@@ -270,7 +269,7 @@
 	      <!-- http://jira.codehaus.org/browse/MDEP-128?focusedCommentId=232398&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-232398 -->
 	      <includeScope>runtime</includeScope>
 	      <excludeScope>provided</excludeScope>
-	      <outputDirectory>${project.build.directory}/stage/glassfish/domains/domain1/applibs/hibernate-${hibernateVersion}</outputDirectory>
+	      <outputDirectory>${project.build.directory}/stage/glassfish/domains/applibs/${project.artifactId}-${project.version}-dependencies</outputDirectory>
 	      <overWriteIfNewer>true</overWriteIfNewer>
 	      <overWriteReleases>false</overWriteReleases>
 	      <overWriteSnapshots>false</overWriteSnapshots>
@@ -290,10 +289,10 @@
 	  <archive>
 	    <manifest>
 	      <addClasspath>true</addClasspath>
-	      <classpathPrefix>hibernate-${hibernateVersion}</classpathPrefix>
+	      <classpathPrefix>${project.artifactId}-${project.version}-dependencies</classpathPrefix>
 	    </manifest>
 	  </archive>
-	  <outputDirectory>${project.build.directory}/stage/glassfish/domains/domain1/applibs</outputDirectory>
+	  <outputDirectory>${project.build.directory}/stage/glassfish/domains/applibs</outputDirectory>
 	</configuration>
       </plugin>
 
@@ -331,7 +330,6 @@
 	    <configuration>
 	      <makePkgsDir>${project.build.directory}</makePkgsDir>
 	      <remoteRepository>${repo.url}</remoteRepository>
-	      <python>${python}</python>
 	      <prototype>${project.build.directory}/proto.py</prototype>
 	      <baseDirectory>${project.build.directory}/stage</baseDirectory>
 	    </configuration>
@@ -370,8 +368,7 @@
     <hibernateVersion>${ipsCompatibleHibernateVersion}.Final</hibernateVersion>
     <ipsCompatibleHibernateVersion>3.6.6</ipsCompatibleHibernateVersion>
     <junitVersion>4.8.2</junitVersion>
-    <python>python</python>
-    <repo.url>TODO_FIXME</repo.url>
+    <repo.url>http://localhost:10000</repo.url>
     <slf4jVersion>1.6.1</slf4jVersion>
   </properties>
 

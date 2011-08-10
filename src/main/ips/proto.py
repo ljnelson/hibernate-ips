@@ -3,7 +3,7 @@
 #
 # DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 #
-# Copyright 2009-2010 Sun Microsystems, Inc. All rights reserved.
+# Copyright 2009-2011 Sun Microsystems, Inc. All rights reserved.
 #
 # The contents of this file are subject to the terms of either the GNU
 # General Public License Version 2 only ("GPL") or the Common Development
@@ -40,13 +40,27 @@ import imp
 
 pkg = {
     "name"          : "hibernate",
+
+    # From http://www.unix.com/man-page/OpenSolaris/5/pkg/:
+    # "The version follows the package name, separated by an '@'.  It
+    # consists of four sequences of numbers, separated by punctuation.
+    # The elements in the first three sequences are separated by dots,
+    # and the sequences are arbitrarily long."
     "version"       : "${ipsCompatibleHibernateVersion}-0.3",
+
     "attributes"    : {
                         "pkg.summary" : "Hibernate JPA",
                         "pkg.description" : "Hibernate JPA provider for GlassFish Application Server instance. After this module is successfully installed you can use Hibernate as a persistence provider for your JPA applications. For more information read hibernate/overview.txt.",
                         "info.classification" : "Frameworks",
                       },
-    "dirtrees"      : [ "glassfish","hibernate" ],
+
+    "defaults"      : {
+                        "file" : { "mode" : "0755", },
+                        "dir" : { "mode" : "0775", },
+                      },
+
+    "dirtrees"      : [ "glassfish/domains/applibs/${project.artifactId}-${project.version}-dependencies" ],
+    "files"         : { "glassfish/domains/applibs/${project.artifactId}-${project.version}.jar" : { "mode" : "0755", }, },
     "licenses"      : {
                         "${basedir}/LICENSE.txt" : {"license" : "GNU LESSER GENERAL PUBLIC LICENSE"},
                       },
