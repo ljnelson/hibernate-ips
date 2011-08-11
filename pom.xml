@@ -12,7 +12,7 @@
   </parent>
 
   <name>Hibernate IPS Package</name>
-  <description>Hibernate JPA provider for GlassFish Application Server instance. After this module is successfully installed you can use Hibernate as a persistence provider for your JPA applications. For more information read hibernate/overview.txt.</description>
+  <description>Hibernate JPA provider for GlassFish Application Server instance. After this module is successfully installed you can use Hibernate as a persistence provider for your JPA applications.</description>
 
   <scm>
     <connection>scm:git:git://github.com/ljnelson/hibernate-ips.git</connection>
@@ -334,13 +334,13 @@
 	    <requireProperty>
 	      <property>ipsCompatibleProjectVersion</property>
 	      <message>This project must have a value provided for its ipsCompatibleProjectVersion property.</message>
-	      <regex>^${ipsCompatibleHibernateVersion}.*$</regex>
-	      <regexMessage>This project's ipsCompatibleProjectVersion property (${ipsCompatibleProjectVersion}) must start with this project's ipsCompatibleHibernateVersion property (${ipsCompatibleHibernateVersion}).</regexMessage>
+	      <regex>^${ipsCompatibleHibernateVersion}\d{2,}(?:-SNAPSHOT)?$</regex>
+	      <regexMessage>This project's ipsCompatibleProjectVersion property (${ipsCompatibleProjectVersion}) must start with this project's ipsCompatibleHibernateVersion property (${ipsCompatibleHibernateVersion}) followed by two digits, followed by an optional -SNAPSHOT qualifier.</regexMessage>
 	    </requireProperty>
 	    <requireProperty>
 	      <property>project.version</property>
 	      <message>This project must have a value provided for its version property.</message>
-	      <regex>^${ipsCompatibleProjectVersion}(-SNAPSHOT)?$</regex>
+	      <regex>^${ipsCompatibleProjectVersion}(?:-SNAPSHOT)?$</regex>
 	      <regexMessage>This project's version (${project.version}) does not begin with the value of this project's ipsCompatibleProjectVersion property (${ipsCompatibleProjectVersion}).</regexMessage>
 	    </requireProperty>
 	    <requireProperty>
@@ -445,8 +445,12 @@
   </build>
 
   <properties>
+
+    <!-- 
+	 Version-related properties. Some of these are governed by the
+	 maven-enforcer-plugin above. 
+    -->
     <buildNumberMavenPluginVersion>1.0</buildNumberMavenPluginVersion>
-    <dependenciesDirectoryPath>ips/${project.artifactId}-${project.version}-dependencies</dependenciesDirectoryPath>
     <glassfishVersion>3.1.1</glassfishVersion>
     <hibernateVersion>${ipsCompatibleHibernateVersion}.Final</hibernateVersion>
     <ipsCompatibleHibernateVersion>3.6.6</ipsCompatibleHibernateVersion>
@@ -460,8 +464,12 @@
     <mavenMakepkgsPluginVersion>0.5.1</mavenMakepkgsPluginVersion>
     <mavenResourcesPluginVersion>2.5</mavenResourcesPluginVersion>
     <mavenSurefirePluginVersion>2.9</mavenSurefirePluginVersion>
+
+    <!-- Other properties. -->
+    <dependenciesDirectoryPath>ips/${project.artifactId}-${project.version}-dependencies</dependenciesDirectoryPath>
     <repo.url>http://localhost:10000</repo.url>
     <slf4jVersion>1.6.1</slf4jVersion>
+
   </properties>
 
 </project>
