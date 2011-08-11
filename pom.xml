@@ -263,13 +263,13 @@
 	<artifactId>maven-dependency-plugin</artifactId>
 	<executions>
 	  <execution>
-	    <id>Copy Hibernate and its dependencies to target/stage</id>
+	    <id>Copy Hibernate and its dependencies to ${project.build.directory}/stage</id>
 	    <configuration>
 	      <excludeArtifactIds>hibernate-jpa-2.0-api</excludeArtifactIds>
 	      <!-- http://jira.codehaus.org/browse/MDEP-128?focusedCommentId=232398&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-232398 -->
 	      <includeScope>runtime</includeScope>
 	      <excludeScope>provided</excludeScope>
-	      <outputDirectory>${project.build.directory}/stage/glassfish/domains/applibs/${project.artifactId}-${project.version}-dependencies</outputDirectory>
+	      <outputDirectory>${project.build.directory}/stage/glassfish/ips/${dependenciesDirectoryName}</outputDirectory>
 	      <overWriteIfNewer>true</overWriteIfNewer>
 	      <overWriteReleases>false</overWriteReleases>
 	      <overWriteSnapshots>false</overWriteSnapshots>
@@ -289,10 +289,10 @@
 	  <archive>
 	    <manifest>
 	      <addClasspath>true</addClasspath>
-	      <classpathPrefix>${project.artifactId}-${project.version}-dependencies</classpathPrefix>
+	      <classpathPrefix>../ips/${dependenciesDirectoryName}</classpathPrefix>
 	    </manifest>
 	  </archive>
-	  <outputDirectory>${project.build.directory}/stage/glassfish/domains/applibs</outputDirectory>
+	  <outputDirectory>${project.build.directory}/stage/glassfish/lib</outputDirectory>
 	</configuration>
       </plugin>
 
@@ -364,6 +364,7 @@
   </build>
 
   <properties>
+    <dependenciesDirectoryName>${project.artifactId}-${project.version}-dependencies</dependenciesDirectoryName>
     <glassfishVersion>3.1.1</glassfishVersion>
     <hibernateVersion>${ipsCompatibleHibernateVersion}.Final</hibernateVersion>
     <ipsCompatibleHibernateVersion>3.6.6</ipsCompatibleHibernateVersion>
