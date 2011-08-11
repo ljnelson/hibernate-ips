@@ -59,7 +59,7 @@ pkg = {
                         "dir" : { "mode" : "0775", },
                       },
 
-    "dirtrees"      : [ "glassfish/ips/${dependenciesDirectoryName}" ],
+    "dirtrees"      : [ "glassfish/${dependenciesDirectoryPath}" ],
     "files"         : { "glassfish/lib/${project.artifactId}-${project.version}.jar" : { "mode" : "0755", }, },
     "licenses"      : {
                         "${basedir}/LICENSE.txt" : {"license" : "GNU LESSER GENERAL PUBLIC LICENSE"},
