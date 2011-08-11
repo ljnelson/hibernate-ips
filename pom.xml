@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>hibernate-ips</artifactId>
-  <version>3.6.6-SNAPSHOT</version>
+  <version>3.6.601-SNAPSHOT</version>
 
   <parent>
     <groupId>org.glassfish</groupId>
@@ -12,6 +12,14 @@
   </parent>
 
   <name>Hibernate IPS Package</name>
+  <description>Hibernate JPA provider for GlassFish Application Server instance. After this module is successfully installed you can use Hibernate as a persistence provider for your JPA applications. For more information read hibernate/overview.txt.</description>
+
+  <scm>
+    <connection>scm:git:git://github.com/ljnelson/hibernate-ips.git</connection>
+    <developerConnection>scm:git:https://ljnelson@github.com/ljnelson/hibernate-ips.git</developerConnection>
+    <tag>HEAD</tag>
+    <url>https://github.com/ljnelson/hibernate-ips/</url>
+  </scm>
 
   <dependencyManagement>
     <dependencies>
@@ -198,9 +206,16 @@
   <build>
     <pluginManagement>
       <plugins>
+
+	<plugin>
+	  <groupId>org.codehaus.mojo</groupId>
+          <artifactId>buildnumber-maven-plugin</artifactId>
+          <version>${buildNumberMavenPluginVersion}</version>
+	</plugin>
+
 	<plugin>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>2.3.2</version>
+          <version>${mavenCompilerPluginVersion}</version>
           <configuration>
             <compilerArgument>-Xlint:all</compilerArgument>
             <encoding>UTF8</encoding>
@@ -210,18 +225,23 @@
         </plugin>
 
 	<plugin>
+	  <artifactId>maven-enforcer-plugin</artifactId>
+	  <version>${mavenEnforcerPluginVersion}</version>
+	</plugin>
+
+	<plugin>
           <artifactId>maven-dependency-plugin</artifactId>
-          <version>2.2</version>
+          <version>${mavenDependencyPluginVersion}</version>
         </plugin>
 
 	<plugin>
 	  <artifactId>maven-jar-plugin</artifactId>
-	  <version>2.3.1</version>
+	  <version>${mavenJarPluginVersion}</version>
 	</plugin>
 
 	<plugin>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>2.5</version> 
+          <version>${mavenResourcesPluginVersion}</version> 
           <configuration>
             <delimiters>
               <delimiter>${*}</delimiter>
@@ -234,7 +254,7 @@
 
 	<plugin>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.9</version>
+          <version>${mavenSurefirePluginVersion}</version>
 	</plugin>
 
 	<plugin>
@@ -246,7 +266,7 @@
 	<plugin>
 	  <groupId>org.jvnet.updatecenter2</groupId>
 	  <artifactId>maven-makepkgs-plugin</artifactId>
-	  <version>0.5.1</version>
+	  <version>${mavenMakepkgsPluginVersion}</version>
 	</plugin>
 	
       </plugins>
@@ -254,9 +274,22 @@
 
     <plugins>
       <plugin>
+	<groupId>org.codehaus.mojo</groupId>
+	<artifactId>buildnumber-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>create</goal>
+            </goals>
+            <phase>validate</phase>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
 	<groupId>org.glassfish.build</groupId>
 	<artifactId>maven-glassfishbuild-plugin</artifactId>
-	<version>${glassfishVersion}</version>
+	<version>${mavenGlassfishBuildPluginVersion}</version>
       </plugin>
 
       <plugin>
@@ -283,14 +316,62 @@
       </plugin>
 
       <plugin>
+	<artifactId>maven-enforcer-plugin</artifactId>
+	<configuration>
+	  <rules>
+	    <requireProperty>
+	      <property>ipsCompatibleHibernateVersion</property>
+	      <message>This project must have a value provided for its ipsCompatibleHibernateVersion property.</message>
+	      <regex>^\d+\.\d+\.\d+$</regex>
+	      <regexMessage>This project's ipsCompatibleHibernateVersion property (${ipsCompatibleHibernateVersion}) must consist solely of digits and periods.</regexMessage>
+	    </requireProperty>
+	    <requireProperty>
+	      <property>hibernateVersion</property>
+	      <message>This project must have a value provided for its hibernateVersion property.</message>
+	      <regex>^${ipsCompatibleHibernateVersion}.*$</regex>
+	      <regexMessage>This project's hibernateVersion property (${hibernateVersion}) must start with the value of this project's ipsCompatibleHibernateVersion property (${ipsCompatibleHibernateVersion}).</regexMessage>
+	    </requireProperty>
+	    <requireProperty>
+	      <property>ipsCompatibleProjectVersion</property>
+	      <message>This project must have a value provided for its ipsCompatibleProjectVersion property.</message>
+	      <regex>^${ipsCompatibleHibernateVersion}.*$</regex>
+	      <regexMessage>This project's ipsCompatibleProjectVersion property (${ipsCompatibleProjectVersion}) must start with this project's ipsCompatibleHibernateVersion property (${ipsCompatibleHibernateVersion}).</regexMessage>
+	    </requireProperty>
+	    <requireProperty>
+	      <property>project.version</property>
+	      <message>This project must have a value provided for its version property.</message>
+	      <regex>^${ipsCompatibleProjectVersion}(-SNAPSHOT)?$</regex>
+	      <regexMessage>This project's version (${project.version}) does not begin with the value of this project's ipsCompatibleProjectVersion property (${ipsCompatibleProjectVersion}).</regexMessage>
+	    </requireProperty>
+	    <requireProperty>
+	      <property>glassfishVersion</property>
+	      <message>This project must have a value provided for its glassfishVersion property.</message>
+	      <regex>^[34]\..*$</regex>
+	      <regexMessage>This project's glassfishVersion property (${glassfishVersion}) must start with "3." or "4.".</regexMessage>
+	    </requireProperty>
+	    <requireProperty>
+	      <property>project.parent.version</property>
+              <message>This project's parent's version must be specified.</message>
+              <regex>^${glassfishVersion}$</regex>
+              <regexMessage>This project's parent's version (${project.parent.version}) must be the same as the value of the glassfishVersion property (${glassfishVersion}).</regexMessage>
+	    </requireProperty>
+	  </rules>
+	</configuration>
+      </plugin>
+
+      <plugin>
 	<artifactId>maven-jar-plugin</artifactId>
 	<configuration>
 	  <finalName>${project.artifactId}-${project.version}</finalName>
 	  <archive>
 	    <manifest>
 	      <addClasspath>true</addClasspath>
+	      <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
 	      <classpathPrefix>../${dependenciesDirectoryPath}</classpathPrefix>
 	    </manifest>
+	    <manifestEntries>
+	      <Implementation-Build>${buildNumber}</Implementation-Build>
+            </manifestEntries>
 	  </archive>
 	  <outputDirectory>${project.build.directory}/stage/glassfish/lib</outputDirectory>
 	</configuration>
@@ -364,11 +445,21 @@
   </build>
 
   <properties>
+    <buildNumberMavenPluginVersion>1.0</buildNumberMavenPluginVersion>
     <dependenciesDirectoryPath>ips/${project.artifactId}-${project.version}-dependencies</dependenciesDirectoryPath>
     <glassfishVersion>3.1.1</glassfishVersion>
     <hibernateVersion>${ipsCompatibleHibernateVersion}.Final</hibernateVersion>
     <ipsCompatibleHibernateVersion>3.6.6</ipsCompatibleHibernateVersion>
+    <ipsCompatibleProjectVersion>${ipsCompatibleHibernateVersion}01</ipsCompatibleProjectVersion>
     <junitVersion>4.8.2</junitVersion>
+    <mavenCompilerPluginVersion>2.3.2</mavenCompilerPluginVersion>
+    <mavenDependencyPluginVersion>2.2</mavenDependencyPluginVersion>
+    <mavenEnforcerPluginVersion>1.0.1</mavenEnforcerPluginVersion>
+    <mavenGlassfishBuildPluginVersion>${glassfishVersion}</mavenGlassfishBuildPluginVersion>
+    <mavenJarPluginVersion>2.3.1</mavenJarPluginVersion>
+    <mavenMakepkgsPluginVersion>0.5.1</mavenMakepkgsPluginVersion>
+    <mavenResourcesPluginVersion>2.5</mavenResourcesPluginVersion>
+    <mavenSurefirePluginVersion>2.9</mavenSurefirePluginVersion>
     <repo.url>http://localhost:10000</repo.url>
     <slf4jVersion>1.6.1</slf4jVersion>
   </properties>

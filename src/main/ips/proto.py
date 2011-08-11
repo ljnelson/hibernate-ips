@@ -39,18 +39,40 @@ import imp
 
 
 pkg = {
-    "name"          : "hibernate",
+    "name"          : "${project.artifactId}",
 
     # From http://www.unix.com/man-page/OpenSolaris/5/pkg/:
+    #
     # "The version follows the package name, separated by an '@'.  It
     # consists of four sequences of numbers, separated by punctuation.
     # The elements in the first three sequences are separated by dots,
-    # and the sequences are arbitrarily long."
-    "version"       : "${ipsCompatibleHibernateVersion}-0.3",
+    # and the sequences are arbitrarily long.
+    #
+    # "The first part is the component version.  For components tightly
+    # bound to OpenSolaris, this will usually be the value of 'uname
+    # -r' for that version of OpenSolaris.  For a component with its
+    # own development lifecycle, this sequence will be the dotted
+    # release number, such as '2.4.10'.
+    #
+    # "The second part, following the comma, is the build version,
+    # specifying what version of OpenSolaris the contents of the
+    # package were built on, providing a minimum bound on which
+    # OpenSolaris version the contents can be expected to run
+    # successfully.
+    #
+    # "The third part, following the dash, is the branch version, a
+    # versioning component, providing vendor-specific information.
+    # This may be incremented when the packaging metadata is changed,
+    # independently of the component, may contain a build number, or
+    # some other information.
+    #
+    # "The fourth part, following the colon, is a timestamp.  It
+    # represents when the package was published."
+    "version"       : "${ipsCompatibleHibernateVersion},${glassfishVersion}-${ipsCompatibleProjectVersion}",
 
     "attributes"    : {
-                        "pkg.summary" : "Hibernate JPA",
-                        "pkg.description" : "Hibernate JPA provider for GlassFish Application Server instance. After this module is successfully installed you can use Hibernate as a persistence provider for your JPA applications. For more information read hibernate/overview.txt.",
+                        "pkg.summary" : "${project.name}",
+                        "pkg.description" : "${project.description}",
                         "info.classification" : "Frameworks",
                       },
 
