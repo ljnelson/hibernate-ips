@@ -409,10 +409,11 @@
 	  <execution>
 	    <id>Make IPS package</id>
 	    <configuration>
-	      <makePkgsDir>${project.build.directory}</makePkgsDir>
-	      <remoteRepository>${repo.url}</remoteRepository>
-	      <prototype>${project.build.directory}/proto.py</prototype>
 	      <baseDirectory>${project.build.directory}/stage</baseDirectory>
+	      <destFile>${project.build.directory}/${project.artifactId}-${project.version}.zip</destFile>
+	      <makePkgsDir>${project.build.directory}</makePkgsDir>
+	      <prototype>${project.build.directory}/proto.py</prototype>
+	      <repourl>${repourl}</repourl>
 	    </configuration>
 	    <goals>
 	      <goal>package</goal>
@@ -467,7 +468,7 @@
 
     <!-- Other properties. -->
     <dependenciesDirectoryPath>ips/${project.artifactId}-${project.version}-dependencies</dependenciesDirectoryPath>
-    <repo.url>http://localhost:10000</repo.url>
+    <repourl>file:///${project.build.directory}/ips-repository</repourl>
     <slf4jVersion>1.6.1</slf4jVersion>
 
   </properties>
