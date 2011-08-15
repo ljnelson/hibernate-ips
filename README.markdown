@@ -18,6 +18,11 @@ To install Hibernate support for Glassfish:
     
         pkg.depotd -d ~/pkg-working-directory -p 10000 --rebuild
 
+   It may be possible in the future to avoid having to run such a
+   server; see [this
+   link](http://mail.opensolaris.org/pipermail/pkg-discuss/2010-May/022716.html)
+   for details.
+
 2. From the root of this project, run the following:
     
         mvn clean install -Drepourl=http://localhost:10000
