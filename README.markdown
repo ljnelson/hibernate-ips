@@ -13,16 +13,16 @@ To install Hibernate support for Glassfish:
 
 1. Start a `pkg.depot` server like this:
     
-    > `pkg.depotd -d ~/pkg-working-directory -p 10000 --rebuild`
+        pkg.depotd -d ~/pkg-working-directory -p 10000 --rebuild
 
 2. From the root of this project, run the following:
     
-    > `mvn clean install -Drepourl=http://localhost:10000`
+        mvn clean install -Drepourl=http://localhost:10000
 
 3. With the `pkg.depotd` server still running, start Glassfish's
    `updatecenter` tool:
     
-    > `$GLASSFISH_HOME/updatetool/updatetool`
+        $GLASSFISH_HOME/updatetool/updatetool
 
 4. In the update tool, press the `Edit Properties...` button.
 
