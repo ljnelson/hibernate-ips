@@ -54,6 +54,23 @@ To install Hibernate support for Glassfish:
 12. Once you've gotten here, you may terminate the `pkg.depotd`
     server.
 
+## What Really Happens
+
+This project simply arranges for the Glassfish Update Center to do all
+the heavy lifting.  The heavy lifting, though, isn't that heavy.
+
+A `hibernate-ips-<version>.jar` file is deposited in the
+`$GLASSFISH_HOME/glassfish/lib` directory, the directory whose `.jar`
+file contents form part of the Glassfish common classloader.  This
+`.jar` file is empty, but contains a `MANIFEST.MF` file with a
+`Class-Path:` header.  The elements in the `Class-Path:` header all
+refer to other `.jar` files within the
+`$GLASSFISH_HOME/glassfish/ips/hibernate-ips-<version>-dependencies`
+directory, which is also created by this project, and which is full of
+Hibernate's dependencies.  The net effect is that the
+`hibernate-ips-<version>.jar` file serves as a kind of façade to the
+contents of the related dependency directory.
+
 ## A Note On Dependencies
 
 [Hibernate's
