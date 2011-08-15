@@ -11,7 +11,9 @@ This project is currently experimental.
 
 To install Hibernate support for Glassfish:
 
-1. Start a `pkg.depot` server like this:
+1. [Start a `pkg.depotd`
+   server](http://dlc.sun.com/osol/docs/content/2009.06/IMGPACKAGESYS/depot_server.html)
+   like this:
     
         pkg.depotd -d ~/pkg-working-directory -p 10000 --rebuild
 
