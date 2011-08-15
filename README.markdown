@@ -22,7 +22,7 @@ To install Hibernate support for Glassfish:
 3. With the `pkg.depotd` server still running, start Glassfish's
    `updatecenter` tool:
     
-        $GLASSFISH_HOME/updatetool/updatetool
+        $GLASSFISH_HOME/updatetool/bin/updatetool
 
 4. In the update tool, press the `Edit Properties...` button.
 
@@ -45,5 +45,9 @@ To install Hibernate support for Glassfish:
 
 ## Further Questions
 
-Questions should be directed to the author, Laird Nelson, at ljnelson
-at big horking email provider starting with `g`.
+[Alexis Moussine-Pouchkine's crash course on
+IPS](http://blogs.oracle.com/alexismp/entry/ips_pkg_5_crash_course) is
+helpful to understand what's going on here.
+
+All other questions should be directed to the author, Laird Nelson, at
+`ljnelson` at big horking email provider starting with `g`.
