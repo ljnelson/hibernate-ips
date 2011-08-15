@@ -1,7 +1,8 @@
 # `hibernate-ips`
 
 This project is an attempt to provide Hibernate support to Glassfish
-3.1.1 using the Glassfish Update Center.
+3.1.1 using the [Glassfish Update
+Center](http://java.net/projects/updatecenter2/).
 
 ## Status
 
