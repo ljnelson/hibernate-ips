@@ -51,6 +51,9 @@ To install Hibernate support for Glassfish:
     `hibernate-ips`.  Install this package like you would any other
     Update Center package.
 
+12. Once you've gotten here, you may terminate the `pkg.depotd`
+    server.
+
 ## A Note On Dependencies
 
 [Hibernate's
