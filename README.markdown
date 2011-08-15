@@ -46,6 +46,38 @@ To install Hibernate support for Glassfish:
     `hibernate-ips`.  Install this package like you would any other
     Update Center package.
 
+## A Note On Dependencies
+
+[Hibernate's
+`pom.xml`](http://repo1.maven.org/maven2/org/hibernate/hibernate-core/3.6.6.Final/hibernate-core-3.6.6.Final.pom)
+declares lots of dependencies.	`hibernate-entitymanager` does too.
+Some of these dependencies are--in practice--mutually exclusive.  For
+example, you'll usually have one cache provider, not several at once.
+
+This project is set up to dump as many of Hibernate's transitive
+dependencies as possible in
+`$GLASSFISH_HOME/ips/hibernate-ips-<version>-dependencies`.  All of
+these dependencies will be on the Glassfish common classpath, visible
+to all applications.
+
+The one dependency (and its transitive dependencies) that is excluded
+is SwarmCache, because it requires a version of JGroups that is older
+than the version of JGroups that is required by several other
+dependencies.  SwarmCache is an older, less popular cache provider and
+hence seemed like a dependency that should not be included by default.
+
+The old version of Hibernate support for Glassfish used to package up
+the no-longer-produced `hibernate3.jar` file, which was a kitchen sink
+type of `.jar` file that packaged Hibernate along with several
+unspecified dependencies into a single file.  Hibernate versions after
+3.5 no longer produce this `.jar` file, requiring that the individual
+developer declare dependencies on what he needs (which cache provider
+to use, etc.).
+
+Providing this kind of support for an application server, however,
+means that by definition we don't know what dependencies the developer
+is going to want.  So we include all of them that we can.
+
 ## Further Questions
 
 [Alexis Moussine-Pouchkine's crash course on
