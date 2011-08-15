@@ -52,7 +52,7 @@ To install Hibernate support for Glassfish:
     Update Center package.
 
 12. Once you've gotten here, you may terminate the `pkg.depotd`
-    server.
+    server.  That's it!
 
 ## What Really Happens
 
