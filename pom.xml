@@ -544,8 +544,8 @@
     <!-- Other properties. -->
     <absoluteStageDirectory>${project.build.directory}/${relativeStageDirectory}</absoluteStageDirectory>
     <relativeDependenciesDirectoryPath>ips/${project.artifactId}-${project.version}-dependencies</relativeDependenciesDirectoryPath>
-    <repourl>file:///${project.build.directory}/ips-repository</repourl>
     <relativeStageDirectory>stage</relativeStageDirectory>
+    <repourl>file:///${project.build.directory}/ips-repository</repourl>
     <slf4jVersion>1.6.1</slf4jVersion>
 
   </properties>
