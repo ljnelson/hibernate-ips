@@ -357,11 +357,11 @@
 	<artifactId>maven-dependency-plugin</artifactId>
 	<executions>
 	  <execution>
-	    <id>Copy Hibernate and its dependencies to ${project.build.directory}/stage</id>
+	    <id>Copy Hibernate and its dependencies to ${absoluteStageDirectory}</id>
 	    <configuration>
 	      <!-- http://jira.codehaus.org/browse/MDEP-128?focusedCommentId=232398&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-232398 -->
 	      <includeScope>runtime</includeScope>
-	      <outputDirectory>${project.build.directory}/stage/glassfish/${dependenciesDirectoryPath}</outputDirectory>
+	      <outputDirectory>${absoluteStageDirectory}/glassfish/${relativeDependenciesDirectoryPath}</outputDirectory>
 	      <overWriteIfNewer>true</overWriteIfNewer>
 	      <overWriteReleases>false</overWriteReleases>
 	      <overWriteSnapshots>false</overWriteSnapshots>
@@ -426,13 +426,13 @@
 	    <manifest>
 	      <addClasspath>true</addClasspath>
 	      <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-	      <classpathPrefix>../${dependenciesDirectoryPath}</classpathPrefix>
+	      <classpathPrefix>../${relativeDependenciesDirectoryPath}</classpathPrefix>
 	    </manifest>
 	    <manifestEntries>
 	      <Implementation-Build>${buildNumber}</Implementation-Build>
             </manifestEntries>
 	  </archive>
-	  <outputDirectory>${project.build.directory}/stage/glassfish/lib</outputDirectory>
+	  <outputDirectory>${absoluteStageDirectory}/glassfish/lib</outputDirectory>
 	</configuration>
       </plugin>
 
@@ -444,7 +444,15 @@
 	      <outputDirectory>${project.build.directory}</outputDirectory>
 	      <resources>
 		<resource>
-		  <directory>src/main/ips</directory>
+		  <directory>${basedir}</directory>
+		  <includes>
+		    <include>LICENSE.txt</include>
+		  </includes>
+		  <filtering>true</filtering>
+		  <targetPath>${relativeStageDirectory}/glassfish/${relativeDependenciesDirectoryPath}</targetPath>
+		</resource>
+		<resource>
+		  <directory>${basedir}/src/main/ips</directory>
 		  <filtering>true</filtering>
 		  <includes>
 		    <include>proto.py</include>
@@ -468,7 +476,7 @@
 	  <execution>
 	    <id>Make IPS package</id>
 	    <configuration>
-	      <baseDirectory>${project.build.directory}/stage</baseDirectory>
+	      <baseDirectory>${absoluteStageDirectory}</baseDirectory>
 	      <destFile>${project.build.directory}/${project.artifactId}-${project.version}.zip</destFile>
 	      <makePkgsDir>${project.build.directory}</makePkgsDir>
 	      <prototype>${project.build.directory}/proto.py</prototype>
@@ -485,7 +493,15 @@
 
     <resources>
       <resource>
-        <directory>src/main/resources</directory>
+	<directory>${basedir}</directory>
+	<filtering>true</filtering>
+	<includes>
+	  <include>LICENSE.txt</include>
+	</includes>
+	<targetPath>META-INF</targetPath>
+      </resource>
+      <resource>
+        <directory>${basedir}/src/main/resources</directory>
 	<excludes>
 	  <exclude>proto.py</exclude>
 	</excludes>
@@ -496,7 +512,7 @@
     <testResources>
       
       <testResource>
-        <directory>src/test/resources</directory>
+        <directory>${basedir}/src/test/resources</directory>
         <filtering>true</filtering>
       </testResource>
       
@@ -526,8 +542,10 @@
     <mavenSurefirePluginVersion>2.9</mavenSurefirePluginVersion>
 
     <!-- Other properties. -->
-    <dependenciesDirectoryPath>ips/${project.artifactId}-${project.version}-dependencies</dependenciesDirectoryPath>
+    <absoluteStageDirectory>${project.build.directory}/${relativeStageDirectory}</absoluteStageDirectory>
+    <relativeDependenciesDirectoryPath>ips/${project.artifactId}-${project.version}-dependencies</relativeDependenciesDirectoryPath>
     <repourl>file:///${project.build.directory}/ips-repository</repourl>
+    <relativeStageDirectory>stage</relativeStageDirectory>
     <slf4jVersion>1.6.1</slf4jVersion>
 
   </properties>

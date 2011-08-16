@@ -39,6 +39,31 @@ import imp
 
 
 pkg = {
+
+    "attributes"    : {
+                        "info.classification" : "Frameworks",
+                        "info.maintainer" : "Laird Nelson <ljnelson@gmail.com>",
+                        "info.maintainer_url" : "http://about.me/lairdnelson",
+                        "info.upstream" : "Hibernate.org",
+                        "info.upstream_url" : "http://hibernate.org/",
+                        "pkg.description" : "${project.description}",
+                        "pkg.detailed_url" : "${project.url}",
+                        "pkg.summary" : "${project.name}",
+                      },
+
+    "defaults"      : {
+                        "file" : { "mode" : "0755", },
+                        "dir" : { "mode" : "0775", },
+                      },
+
+    "dirtrees"      : [ "glassfish/${relativeDependenciesDirectoryPath}" ],
+
+    "files"         : { "glassfish/lib/${project.artifactId}-${project.version}.jar" : { "mode" : "0755", }, },
+    
+    "licenses"      : {
+                        "${basedir}/LICENSE.txt" : {"license" : "GNU LESSER GENERAL PUBLIC LICENSE"},
+                      },
+
     "name"          : "${project.artifactId}",
 
     # From http://www.unix.com/man-page/OpenSolaris/5/pkg/:
@@ -70,27 +95,4 @@ pkg = {
     # represents when the package was published."
     "version"       : "${ipsCompatibleHibernateVersion},${glassfishVersion}-${ipsCompatibleProjectVersion}",
 
-    "attributes"    : {
-                        "pkg.summary" : "${project.name}",
-                        "pkg.description" : "${project.description}",
-                        "info.classification" : "Frameworks",
-                      },
-
-    "defaults"      : {
-                        "file" : { "mode" : "0755", },
-                        "dir" : { "mode" : "0775", },
-                      },
-
-    "dirtrees"      : [ "glassfish/${dependenciesDirectoryPath}" ],
-
-    "info.maintainer" : "Laird Nelson <ljnelson@gmail.com>",
-
-    "files"         : { "glassfish/lib/${project.artifactId}-${project.version}.jar" : { "mode" : "0755", }, },
-    
-    "licenses"      : {
-                        "${basedir}/LICENSE.txt" : {"license" : "GNU LESSER GENERAL PUBLIC LICENSE"},
-                      },
-
-    "pkg.detailed_url" : "${project.url}",
-    
 }
