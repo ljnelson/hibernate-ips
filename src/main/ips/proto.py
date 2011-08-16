@@ -82,8 +82,15 @@ pkg = {
                       },
 
     "dirtrees"      : [ "glassfish/${dependenciesDirectoryPath}" ],
+
+    "info.maintainer" : "Laird Nelson <ljnelson@gmail.com>",
+
     "files"         : { "glassfish/lib/${project.artifactId}-${project.version}.jar" : { "mode" : "0755", }, },
+    
     "licenses"      : {
                         "${basedir}/LICENSE.txt" : {"license" : "GNU LESSER GENERAL PUBLIC LICENSE"},
                       },
+
+    "pkg.detailed_url" : "${project.url}",
+    
 }
