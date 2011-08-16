@@ -3,6 +3,17 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>hibernate-ips</artifactId>
+
+  <!-- 
+       This project's version consists of the IPS-compatible Hibernate
+       version (numbers and dots only, i.e. no "Final" or "RC" or
+       "Beta"), followed immediately, with no separator character, by
+       a two-digit version number representing the version of this
+       project, followed by an optional -SNAPSHOT qualifier.
+
+       These version rules are enforced by the maven-enforcer-plugin
+       below.
+  -->
   <version>3.6.601-SNAPSHOT</version>
 
   <parent>
