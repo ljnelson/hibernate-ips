@@ -13,6 +13,7 @@
 
   <name>Hibernate IPS Package</name>
   <description>Hibernate JPA provider for GlassFish Application Server instance. After this module is successfully installed you can use Hibernate as a persistence provider for your JPA applications.</description>
+  <url>https://github.com/ljnelson/hibernate-ips</url>
 
   <licenses>
     <license>
@@ -29,6 +30,25 @@
     <tag>HEAD</tag>
     <url>https://github.com/ljnelson/hibernate-ips/</url>
   </scm>
+
+  <developers>
+    <developer>
+      <id>ljnelson</id>
+      <name>Laird Nelson</name>
+      <email>ljnelson@gmail.com</email>
+      <url>http://about.me/lairdnelson</url>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+      <timezone>-5</timezone>
+    </developer>
+  </developers>
+
+  <issueManagement>
+    <system>Github</system>
+    <url>https://github.com/ljnelson/hibernate-ips/issues</url>
+  </issueManagement>
 
   <dependencyManagement>
     <dependencies>
@@ -339,10 +359,8 @@
 	  <execution>
 	    <id>Copy Hibernate and its dependencies to ${project.build.directory}/stage</id>
 	    <configuration>
-	      <excludeArtifactIds>hibernate-jpa-2.0-api</excludeArtifactIds>
 	      <!-- http://jira.codehaus.org/browse/MDEP-128?focusedCommentId=232398&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-232398 -->
 	      <includeScope>runtime</includeScope>
-	      <excludeScope>provided</excludeScope>
 	      <outputDirectory>${project.build.directory}/stage/glassfish/${dependenciesDirectoryPath}</outputDirectory>
 	      <overWriteIfNewer>true</overWriteIfNewer>
 	      <overWriteReleases>false</overWriteReleases>
