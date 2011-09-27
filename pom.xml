@@ -14,7 +14,7 @@
        These version rules are enforced by the maven-enforcer-plugin
        below.
   -->
-  <version>3.6.601-SNAPSHOT</version>
+  <version>3.6.701-SNAPSHOT</version>
 
   <parent>
     <groupId>org.glassfish</groupId>
@@ -38,7 +38,6 @@
   <scm>
     <connection>scm:git:git://github.com/ljnelson/hibernate-ips.git</connection>
     <developerConnection>scm:git:https://ljnelson@github.com/ljnelson/hibernate-ips.git</developerConnection>
-    <tag>HEAD</tag>
     <url>https://github.com/ljnelson/hibernate-ips/</url>
   </scm>
 
@@ -65,132 +64,132 @@
     <dependencies>
 
       <dependency>
-	<groupId>junit</groupId>
-	<artifactId>junit</artifactId>
-	<version>${junitVersion}</version>
-	<scope>test</scope>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junitVersion}</version>
+        <scope>test</scope>
       </dependency>
 
       <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-c3p0</artifactId>
         <version>${hibernateVersion}</version>
-	<scope>runtime</scope>
+        <scope>runtime</scope>
       </dependency>
 
       <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-core</artifactId>
         <version>${hibernateVersion}</version>
-	<scope>runtime</scope>
-	<exclusions>
-	  <exclusion>
-	    <groupId>javax.transaction</groupId>
-	    <artifactId>jta</artifactId>
-	  </exclusion>
-	  <exclusion>
-	    <groupId>org.hibernate.javax.persistence</groupId>
-	    <artifactId>hibernate-jpa-2.0-api</artifactId>
-	  </exclusion>
-	</exclusions>
+        <scope>runtime</scope>
+        <exclusions>
+          <exclusion>
+            <groupId>javax.transaction</groupId>
+            <artifactId>jta</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.0-api</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-ehcache</artifactId>
         <version>${hibernateVersion}</version>
-	<scope>runtime</scope>
+        <scope>runtime</scope>
       </dependency>
 
       <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-entitymanager</artifactId>
         <version>${hibernateVersion}</version>
-	<scope>runtime</scope>
-	<exclusions>
-	  <exclusion>
-	    <groupId>org.hibernate.javax.persistence</groupId>
-	    <artifactId>hibernate-jpa-2.0-api</artifactId>
-	  </exclusion>
-	</exclusions>
+        <scope>runtime</scope>
+        <exclusions>
+          <exclusion>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.0-api</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-envers</artifactId>
         <version>${hibernateVersion}</version>
-	<scope>runtime</scope>
-	<exclusions>
-	  <exclusion>
-	    <groupId>org.hibernate.javax.persistence</groupId>
-	    <artifactId>hibernate-jpa-2.0-api</artifactId>
-	  </exclusion>
-	</exclusions>
+        <scope>runtime</scope>
+        <exclusions>
+          <exclusion>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.0-api</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-infinispan</artifactId>
         <version>${hibernateVersion}</version>
-	<scope>runtime</scope>
-	<exclusions>
-	  <exclusion>
-	    <groupId>org.jboss.javaee</groupId>
-	    <artifactId>jboss-transaction-api</artifactId>
-	  </exclusion>
-	</exclusions>
+        <scope>runtime</scope>
+        <exclusions>
+          <exclusion>
+            <groupId>org.jboss.javaee</groupId>
+            <artifactId>jboss-transaction-api</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-jbosscache</artifactId>
         <version>${hibernateVersion}</version>
-	<scope>runtime</scope>
-	<exclusions>
-	  <exclusion>
-	    <groupId>org.jboss.javaee</groupId>
-	    <artifactId>jboss-transaction-api</artifactId>
-	  </exclusion>
-	  <exclusion>
-	    <groupId>jgroups</groupId>
-	    <artifactId>jgroups</artifactId>
-	  </exclusion>
-	</exclusions>
+        <scope>runtime</scope>
+        <exclusions>
+          <exclusion>
+            <groupId>org.jboss.javaee</groupId>
+            <artifactId>jboss-transaction-api</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>jgroups</groupId>
+            <artifactId>jgroups</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-oscache</artifactId>
         <version>${hibernateVersion}</version>
-	<scope>runtime</scope>
+        <scope>runtime</scope>
       </dependency>
 
       <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-proxool</artifactId>
         <version>${hibernateVersion}</version>
-	<scope>runtime</scope>
+        <scope>runtime</scope>
       </dependency>
 
       <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-swarmcache</artifactId>
         <version>${hibernateVersion}</version>
-	<scope>runtime</scope>
+        <scope>runtime</scope>
       </dependency>
 
       <dependency>
-	<groupId>org.slf4j</groupId>
-	<artifactId>slf4j-api</artifactId>
-	<version>${slf4jVersion}</version>
-	<scope>runtime</scope>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4jVersion}</version>
+        <scope>runtime</scope>
       </dependency>
 
       <dependency>
-	<groupId>org.slf4j</groupId>
-	<artifactId>slf4j-jdk14</artifactId>
-	<version>${slf4jVersion}</version>
-	<scope>runtime</scope>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-jdk14</artifactId>
+        <version>${slf4jVersion}</version>
+        <scope>runtime</scope>
       </dependency>
 
     </dependencies>
@@ -200,10 +199,10 @@
 
     <!-- No need; Glassfish has its own connection pool. -->
     <!--
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-c3p0</artifactId>
-    </dependency>
+        <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-c3p0</artifactId>
+        </dependency>
     -->
 
     <dependency>
@@ -247,15 +246,15 @@
     </dependency>
     
     <!--
-    We do not include hibernate-swarmcache because it pulls in an
-    ancient version of jgroups-all that conflicts with the jgroups
-    pulled in transitively by hibernate-infinispan.
+        We do not include hibernate-swarmcache because it pulls in an
+        ancient version of jgroups-all that conflicts with the jgroups
+        pulled in transitively by hibernate-infinispan.
     -->
     <!--
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-swarmcache</artifactId>
-    </dependency>
+        <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-swarmcache</artifactId>
+        </dependency>
     -->
 
     <dependency>
@@ -279,13 +278,7 @@
     <pluginManagement>
       <plugins>
 
-	<plugin>
-	  <groupId>org.codehaus.mojo</groupId>
-          <artifactId>buildnumber-maven-plugin</artifactId>
-          <version>${buildNumberMavenPluginVersion}</version>
-	</plugin>
-
-	<plugin>
+        <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${mavenCompilerPluginVersion}</version>
           <configuration>
@@ -296,22 +289,22 @@
           </configuration>
         </plugin>
 
-	<plugin>
-	  <artifactId>maven-enforcer-plugin</artifactId>
-	  <version>${mavenEnforcerPluginVersion}</version>
-	</plugin>
+        <plugin>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <version>${mavenEnforcerPluginVersion}</version>
+        </plugin>
 
-	<plugin>
+        <plugin>
           <artifactId>maven-dependency-plugin</artifactId>
           <version>${mavenDependencyPluginVersion}</version>
         </plugin>
 
-	<plugin>
-	  <artifactId>maven-jar-plugin</artifactId>
-	  <version>${mavenJarPluginVersion}</version>
-	</plugin>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>${mavenJarPluginVersion}</version>
+        </plugin>
 
-	<plugin>
+        <plugin>
           <artifactId>maven-resources-plugin</artifactId>
           <version>${mavenResourcesPluginVersion}</version> 
           <configuration>
@@ -324,198 +317,182 @@
           </configuration>
         </plugin>
 
-	<plugin>
+        <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${mavenSurefirePluginVersion}</version>
-	</plugin>
+        </plugin>
 
-	<plugin>
-	  <groupId>org.glassfish.build</groupId>
-	  <artifactId>maven-glassfishbuild-plugin</artifactId>
-	  <version>${glassfishVersion}</version>
-	</plugin>
+        <plugin>
+          <groupId>org.glassfish.build</groupId>
+          <artifactId>maven-glassfishbuild-plugin</artifactId>
+          <version>${glassfishVersion}</version>
+        </plugin>
 
-	<plugin>
-	  <groupId>org.jvnet.updatecenter2</groupId>
-	  <artifactId>maven-makepkgs-plugin</artifactId>
-	  <version>${mavenMakepkgsPluginVersion}</version>
-	</plugin>
-	
+        <plugin>
+          <groupId>org.jvnet.updatecenter2</groupId>
+          <artifactId>maven-makepkgs-plugin</artifactId>
+          <version>${mavenMakepkgsPluginVersion}</version>
+        </plugin>
+        
       </plugins>
     </pluginManagement>
 
     <plugins>
       <plugin>
-	<groupId>org.codehaus.mojo</groupId>
-	<artifactId>buildnumber-maven-plugin</artifactId>
+        <groupId>org.glassfish.build</groupId>
+        <artifactId>maven-glassfishbuild-plugin</artifactId>
+        <version>${mavenGlassfishBuildPluginVersion}</version>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
         <executions>
           <execution>
+            <id>Copy Hibernate and its dependencies to ${absoluteStageDirectory}</id>
+            <configuration>
+              <!-- http://jira.codehaus.org/browse/MDEP-128?focusedCommentId=232398&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-232398 -->
+              <includeScope>runtime</includeScope>
+              <outputDirectory>${absoluteStageDirectory}/glassfish/${relativeDependenciesDirectoryPath}</outputDirectory>
+              <overWriteIfNewer>true</overWriteIfNewer>
+              <overWriteReleases>false</overWriteReleases>
+              <overWriteSnapshots>false</overWriteSnapshots>
+            </configuration>
             <goals>
-              <goal>create</goal>
+              <goal>copy-dependencies</goal>
             </goals>
-            <phase>validate</phase>
+            <phase>generate-resources</phase>
           </execution>
         </executions>
       </plugin>
 
       <plugin>
-	<groupId>org.glassfish.build</groupId>
-	<artifactId>maven-glassfishbuild-plugin</artifactId>
-	<version>${mavenGlassfishBuildPluginVersion}</version>
-      </plugin>
-
-      <plugin>
-	<artifactId>maven-dependency-plugin</artifactId>
-	<executions>
-	  <execution>
-	    <id>Copy Hibernate and its dependencies to ${absoluteStageDirectory}</id>
-	    <configuration>
-	      <!-- http://jira.codehaus.org/browse/MDEP-128?focusedCommentId=232398&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-232398 -->
-	      <includeScope>runtime</includeScope>
-	      <outputDirectory>${absoluteStageDirectory}/glassfish/${relativeDependenciesDirectoryPath}</outputDirectory>
-	      <overWriteIfNewer>true</overWriteIfNewer>
-	      <overWriteReleases>false</overWriteReleases>
-	      <overWriteSnapshots>false</overWriteSnapshots>
-	    </configuration>
-	    <goals>
-	      <goal>copy-dependencies</goal>
-	    </goals>
-	    <phase>generate-resources</phase>
-	  </execution>
-	</executions>
-      </plugin>
-
-      <plugin>
-	<artifactId>maven-enforcer-plugin</artifactId>
-	<configuration>
-	  <rules>
-	    <requireProperty>
-	      <property>ipsCompatibleHibernateVersion</property>
-	      <message>This project must have a value provided for its ipsCompatibleHibernateVersion property.</message>
-	      <regex>^\d+\.\d+\.\d+$</regex>
-	      <regexMessage>This project's ipsCompatibleHibernateVersion property (${ipsCompatibleHibernateVersion}) must consist solely of digits and periods.</regexMessage>
-	    </requireProperty>
-	    <requireProperty>
-	      <property>hibernateVersion</property>
-	      <message>This project must have a value provided for its hibernateVersion property.</message>
-	      <regex>^${ipsCompatibleHibernateVersion}.*$</regex>
-	      <regexMessage>This project's hibernateVersion property (${hibernateVersion}) must start with the value of this project's ipsCompatibleHibernateVersion property (${ipsCompatibleHibernateVersion}).</regexMessage>
-	    </requireProperty>
-	    <requireProperty>
-	      <property>ipsCompatibleProjectVersion</property>
-	      <message>This project must have a value provided for its ipsCompatibleProjectVersion property.</message>
-	      <regex>^${ipsCompatibleHibernateVersion}\d{2,}(?:-SNAPSHOT)?$</regex>
-	      <regexMessage>This project's ipsCompatibleProjectVersion property (${ipsCompatibleProjectVersion}) must start with this project's ipsCompatibleHibernateVersion property (${ipsCompatibleHibernateVersion}) followed by two digits, followed by an optional -SNAPSHOT qualifier.</regexMessage>
-	    </requireProperty>
-	    <requireProperty>
-	      <property>project.version</property>
-	      <message>This project must have a value provided for its version property.</message>
-	      <regex>^${ipsCompatibleProjectVersion}(?:-SNAPSHOT)?$</regex>
-	      <regexMessage>This project's version (${project.version}) does not begin with the value of this project's ipsCompatibleProjectVersion property (${ipsCompatibleProjectVersion}).</regexMessage>
-	    </requireProperty>
-	    <requireProperty>
-	      <property>glassfishVersion</property>
-	      <message>This project must have a value provided for its glassfishVersion property.</message>
-	      <regex>^[34]\..*$</regex>
-	      <regexMessage>This project's glassfishVersion property (${glassfishVersion}) must start with "3." or "4.".</regexMessage>
-	    </requireProperty>
-	    <requireProperty>
-	      <property>project.parent.version</property>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <configuration>
+          <rules>
+            <requireProperty>
+              <property>ipsCompatibleHibernateVersion</property>
+              <message>This project must have a value provided for its ipsCompatibleHibernateVersion property.</message>
+              <regex>^\d+\.\d+\.\d+$</regex>
+              <regexMessage>This project's ipsCompatibleHibernateVersion property (${ipsCompatibleHibernateVersion}) must consist solely of digits and periods.</regexMessage>
+            </requireProperty>
+            <requireProperty>
+              <property>hibernateVersion</property>
+              <message>This project must have a value provided for its hibernateVersion property.</message>
+              <regex>^${ipsCompatibleHibernateVersion}.*$</regex>
+              <regexMessage>This project's hibernateVersion property (${hibernateVersion}) must start with the value of this project's ipsCompatibleHibernateVersion property (${ipsCompatibleHibernateVersion}).</regexMessage>
+            </requireProperty>
+            <requireProperty>
+              <property>ipsCompatibleProjectVersion</property>
+              <message>This project must have a value provided for its ipsCompatibleProjectVersion property.</message>
+              <regex>^${ipsCompatibleHibernateVersion}\d{2,}(?:-SNAPSHOT)?$</regex>
+              <regexMessage>This project's ipsCompatibleProjectVersion property (${ipsCompatibleProjectVersion}) must start with this project's ipsCompatibleHibernateVersion property (${ipsCompatibleHibernateVersion}) followed by two digits, followed by an optional -SNAPSHOT qualifier.</regexMessage>
+            </requireProperty>
+            <requireProperty>
+              <property>project.version</property>
+              <message>This project must have a value provided for its version property.</message>
+              <regex>^${ipsCompatibleProjectVersion}(?:-SNAPSHOT)?$</regex>
+              <regexMessage>This project's version (${project.version}) does not begin with the value of this project's ipsCompatibleProjectVersion property (${ipsCompatibleProjectVersion}).</regexMessage>
+            </requireProperty>
+            <requireProperty>
+              <property>glassfishVersion</property>
+              <message>This project must have a value provided for its glassfishVersion property.</message>
+              <regex>^[34]\..*$</regex>
+              <regexMessage>This project's glassfishVersion property (${glassfishVersion}) must start with "3." or "4.".</regexMessage>
+            </requireProperty>
+            <requireProperty>
+              <property>project.parent.version</property>
               <message>This project's parent's version must be specified.</message>
               <regex>^${glassfishVersion}$</regex>
               <regexMessage>This project's parent's version (${project.parent.version}) must be the same as the value of the glassfishVersion property (${glassfishVersion}).</regexMessage>
-	    </requireProperty>
-	  </rules>
-	</configuration>
+            </requireProperty>
+          </rules>
+        </configuration>
       </plugin>
 
       <plugin>
-	<artifactId>maven-jar-plugin</artifactId>
-	<configuration>
-	  <finalName>${project.artifactId}-${project.version}</finalName>
-	  <archive>
-	    <manifest>
-	      <addClasspath>true</addClasspath>
-	      <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-	      <classpathPrefix>../${relativeDependenciesDirectoryPath}</classpathPrefix>
-	    </manifest>
-	    <manifestEntries>
-	      <Implementation-Build>${buildNumber}</Implementation-Build>
-            </manifestEntries>
-	  </archive>
-	  <outputDirectory>${absoluteStageDirectory}/glassfish/lib</outputDirectory>
-	</configuration>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <finalName>${project.artifactId}-${project.version}</finalName>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              <classpathPrefix>../${relativeDependenciesDirectoryPath}</classpathPrefix>
+            </manifest>
+          </archive>
+          <outputDirectory>${absoluteStageDirectory}/glassfish/lib</outputDirectory>
+        </configuration>
       </plugin>
 
       <plugin>
-	<artifactId>maven-resources-plugin</artifactId>
-	<executions>
-	  <execution>
-	    <configuration>
-	      <outputDirectory>${project.build.directory}</outputDirectory>
-	      <resources>
-		<resource>
-		  <directory>${basedir}</directory>
-		  <includes>
-		    <include>LICENSE.txt</include>
-		  </includes>
-		  <filtering>true</filtering>
-		  <targetPath>${relativeStageDirectory}/glassfish/${relativeDependenciesDirectoryPath}</targetPath>
-		</resource>
-		<resource>
-		  <directory>${basedir}/src/main/ips</directory>
-		  <filtering>true</filtering>
-		  <includes>
-		    <include>proto.py</include>
-		  </includes>
-		</resource>
-	      </resources>
-	    </configuration>
-	    <goals>
-	      <goal>copy-resources</goal>
-	    </goals>
-	    <id>Copy and filter IPS package file</id>
-	    <phase>process-resources</phase>
-	  </execution>
-	</executions>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <configuration>
+              <outputDirectory>${project.build.directory}</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>${basedir}</directory>
+                  <includes>
+                    <include>LICENSE.txt</include>
+                  </includes>
+                  <filtering>true</filtering>
+                  <targetPath>${relativeStageDirectory}/glassfish/${relativeDependenciesDirectoryPath}</targetPath>
+                </resource>
+                <resource>
+                  <directory>${basedir}/src/main/ips</directory>
+                  <filtering>true</filtering>
+                  <includes>
+                    <include>proto.py</include>
+                  </includes>
+                </resource>
+              </resources>
+            </configuration>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <id>Copy and filter IPS package file</id>
+            <phase>process-resources</phase>
+          </execution>
+        </executions>
       </plugin>
 
       <plugin>
-	<groupId>org.jvnet.updatecenter2</groupId>
-	<artifactId>maven-makepkgs-plugin</artifactId>
-	<executions>
-	  <execution>
-	    <id>Make IPS package</id>
-	    <configuration>
-	      <baseDirectory>${absoluteStageDirectory}</baseDirectory>
-	      <destFile>${project.build.directory}/${project.artifactId}-${project.version}.zip</destFile>
-	      <makePkgsDir>${project.build.directory}</makePkgsDir>
-	      <prototype>${project.build.directory}/proto.py</prototype>
-	      <repourl>${repourl}</repourl>
-	    </configuration>
-	    <goals>
-	      <goal>package</goal>
-	    </goals>
-	  </execution>
-	</executions>
+        <groupId>org.jvnet.updatecenter2</groupId>
+        <artifactId>maven-makepkgs-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>Make IPS package</id>
+            <configuration>
+              <baseDirectory>${absoluteStageDirectory}</baseDirectory>
+              <destFile>${project.build.directory}/${project.artifactId}-${project.version}.zip</destFile>
+              <makePkgsDir>${project.build.directory}</makePkgsDir>
+              <prototype>${project.build.directory}/proto.py</prototype>
+              <repourl>${repourl}</repourl>
+            </configuration>
+            <goals>
+              <goal>package</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
 
     </plugins>
 
     <resources>
       <resource>
-	<directory>${basedir}</directory>
-	<filtering>true</filtering>
-	<includes>
-	  <include>LICENSE.txt</include>
-	</includes>
-	<targetPath>META-INF</targetPath>
+        <directory>${basedir}</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>LICENSE.txt</include>
+        </includes>
+        <targetPath>META-INF</targetPath>
       </resource>
       <resource>
         <directory>${basedir}/src/main/resources</directory>
-	<excludes>
-	  <exclude>proto.py</exclude>
-	</excludes>
+        <excludes>
+          <exclude>proto.py</exclude>
+        </excludes>
         <filtering>true</filtering>
       </resource>
     </resources>
@@ -530,34 +507,33 @@
     </testResources>
 
   </build>
-
+  
   <properties>
 
     <!-- 
-	 Version-related properties. Some of these are governed by the
-	 maven-enforcer-plugin above. 
+         Version-related properties. Some of these are governed by the
+         maven-enforcer-plugin above. 
     -->
-    <buildNumberMavenPluginVersion>1.0</buildNumberMavenPluginVersion>
     <glassfishVersion>3.1.1</glassfishVersion>
     <hibernateVersion>${ipsCompatibleHibernateVersion}.Final</hibernateVersion>
-    <ipsCompatibleHibernateVersion>3.6.6</ipsCompatibleHibernateVersion>
+    <ipsCompatibleHibernateVersion>3.6.7</ipsCompatibleHibernateVersion>
     <ipsCompatibleProjectVersion>${ipsCompatibleHibernateVersion}01</ipsCompatibleProjectVersion>
     <junitVersion>4.8.2</junitVersion>
     <mavenCompilerPluginVersion>2.3.2</mavenCompilerPluginVersion>
-    <mavenDependencyPluginVersion>2.2</mavenDependencyPluginVersion>
+    <mavenDependencyPluginVersion>2.3</mavenDependencyPluginVersion>
     <mavenEnforcerPluginVersion>1.0.1</mavenEnforcerPluginVersion>
     <mavenGlassfishBuildPluginVersion>${glassfishVersion}</mavenGlassfishBuildPluginVersion>
-    <mavenJarPluginVersion>2.3.1</mavenJarPluginVersion>
+    <mavenJarPluginVersion>2.3.2</mavenJarPluginVersion>
     <mavenMakepkgsPluginVersion>0.5.1</mavenMakepkgsPluginVersion>
     <mavenResourcesPluginVersion>2.5</mavenResourcesPluginVersion>
     <mavenSurefirePluginVersion>2.9</mavenSurefirePluginVersion>
+    <slf4jVersion>1.6.1</slf4jVersion>
 
     <!-- Other properties. -->
     <absoluteStageDirectory>${project.build.directory}/${relativeStageDirectory}</absoluteStageDirectory>
     <relativeDependenciesDirectoryPath>ips/${project.artifactId}-${project.version}-dependencies</relativeDependenciesDirectoryPath>
     <relativeStageDirectory>stage</relativeStageDirectory>
     <repourl>file:///${project.build.directory}/ips-repository</repourl>
-    <slf4jVersion>1.6.1</slf4jVersion>
 
   </properties>
 
