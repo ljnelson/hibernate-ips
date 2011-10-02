@@ -64,13 +64,6 @@
     <dependencies>
 
       <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${junitVersion}</version>
-        <scope>test</scope>
-      </dependency>
-
-      <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-c3p0</artifactId>
         <version>${hibernateVersion}</version>
@@ -267,11 +260,6 @@
       <artifactId>slf4j-jdk14</artifactId>
     </dependency>
 
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-    </dependency>
-    
   </dependencies>
 
   <build>
@@ -518,7 +506,6 @@
     <hibernateVersion>${ipsCompatibleHibernateVersion}.Final</hibernateVersion>
     <ipsCompatibleHibernateVersion>3.6.7</ipsCompatibleHibernateVersion>
     <ipsCompatibleProjectVersion>${ipsCompatibleHibernateVersion}01</ipsCompatibleProjectVersion>
-    <junitVersion>4.8.2</junitVersion>
     <mavenCompilerPluginVersion>2.3.2</mavenCompilerPluginVersion>
     <mavenDependencyPluginVersion>2.3</mavenDependencyPluginVersion>
     <mavenEnforcerPluginVersion>1.0.1</mavenEnforcerPluginVersion>
