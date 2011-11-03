@@ -518,7 +518,7 @@
 
     <!-- Other properties. -->
     <absoluteStageDirectory>${project.build.directory}/${relativeStageDirectory}</absoluteStageDirectory>
-    <relativeDependenciesDirectoryPath>ips/${project.artifactId}-${project.version}-dependencies</relativeDependenciesDirectoryPath>
+    <relativeDependenciesDirectoryPath>lib-contrib/${project.artifactId}-${project.version}-dependencies</relativeDependenciesDirectoryPath>
     <relativeStageDirectory>stage</relativeStageDirectory>
     <repourl>file:///${project.build.directory}/ips-repository</repourl>
 
